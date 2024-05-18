@@ -44,9 +44,8 @@ export default App;
 
 | Prop                  | Description                                       | Type                                           | Default    |
 |-----------------------|---------------------------------------------------|------------------------------------------------|------------|
-| `name`                | The name of the component.                        | string                                         | -          |
 | `handleChange`        | Handler function called when a file is selected   | (files: File[]) => void                        | -          |
-|                       | or dragged and dropped.                          |                                                |            |
+|                       | or dragged and dropped.                           |                                                |            |
 | `limit`               | Limit the number of files that can be selected.   | number                                         | -          |
 | `placeholder`         | Placeholder for the drag and drop area.           | string                                         | -          |
 | `title`               | Title of the drag and drop area.                  | string                                         | -          |
@@ -56,3 +55,4 @@ export default App;
 | `messageLimit`        | Message when exceeding the file limit.            | string                                         | -          |
 | `showMessageLimit`    | Enable displaying a message when exceeding        | boolean                                        | -          |
 |                       | the file limit.                                   |                                                |            |
+| `defaultPreview`      | Default image preview                             | string[]                                       | -          |

@@ -4,7 +4,6 @@ import Toast from "./Toast";
 import Preview from "./Preview";
 
 type Props = {
-    name?: string;
     handleChange?: (arg0: Array<File> | null) => void;
     limit?: number;
     placeholder?: string;
@@ -14,11 +13,12 @@ type Props = {
     heightImagePreview?: number;
     messageLimit?: string;
     showMessageLimit?: boolean;
+    defaultPreview?: string[];
 }
 
 
 const DragDropFile: React.FC<Props> = (props): JSX.Element => {
-    const { handleChange, limit, placeholder, title, clearTitle, withImagePreview, heightImagePreview, messageLimit, showMessageLimit } = props;
+    const { handleChange, limit, placeholder, title, clearTitle, withImagePreview, heightImagePreview, messageLimit, showMessageLimit, defaultPreview } = props;
 
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -93,6 +93,7 @@ const DragDropFile: React.FC<Props> = (props): JSX.Element => {
     const handleClearImage = () => {
         setFiles(null);
         setUrlsPreview([]);
+        handleChange && handleChange(null);
         return false;
     }
 
@@ -146,6 +147,7 @@ const DragDropFile: React.FC<Props> = (props): JSX.Element => {
                                         width={withImagePreview}
                                         height={heightImagePreview}
                                         onDelete={handleDeleteOne}
+                                        defaulPreview={defaultPreview}
                                     />
                                 </div>
                                 <div onClick={(e) => { e.stopPropagation(); }} style={{ display: loading ? "block" : "none" }} className="overlay-loading">

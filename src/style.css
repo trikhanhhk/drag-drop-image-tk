@@ -68,22 +68,22 @@
 }
 
 
-.image-container {
+.image-container-preview {
   position: relative;
   display: inline-block;
   margin: 5px;
 }
 
-.image-container:hover {
+.image-container-preview:hover {
   border: 1px solid #91b0b3;
   border-radius: 4px;
 }
 
-.image-container img {
+.image-container-preview img {
   display: block;
 }
 
-.overlay {
+.overlay-button {
   position: absolute;
   top: -10px;
   right: -10px;
@@ -93,12 +93,12 @@
   opacity: 0;
 }
 
-.image-container:hover .overlay {
+.image-container-preview:hover .overlay-button {
 
   opacity: 1;
 }
 
-.overlay button {
+.overlay-button button {
   background: transparent;
   border: none;
   color: white;
@@ -125,7 +125,7 @@
   z-index: 9999
 }
 
-.loader {
+.overlay-loading .loader {
   border: 7px solid #f3f3f3;
   border-radius: 50%;
   border-bottom: 7px solid blue;
@@ -136,7 +136,7 @@
   animation: spin 1s linear infinite;
   position: absolute;
   top: 30%;
-  left: 50%;
+  left: 48%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;

@@ -18,7 +18,7 @@ const Preview: React.FC<PropsPreview> = (props) => {
                     src={url}
                     alt={`preview-${index}`}
                 />
-                {onDelete && <div className='overlay'>
+                {onDelete && <div className='overlay-button'>
                     <button type='button' onClick={(e) => {
                         e.stopPropagation();
                         console.log("index", index);

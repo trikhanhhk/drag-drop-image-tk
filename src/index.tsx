@@ -33,13 +33,9 @@ const DragDropFile: React.FC<Props> = (props): JSX.Element => {
     }
 
     const handleChoseFile = () => {
-        const files = fileInputRef.current?.files;
-        files && handleFileChange(files);
+        const filesChose = fileInputRef.current?.files;
+        filesChose && handleFileChange(filesChose);
     };
-
-    useEffect(() => {
-        handleChange && handleChange(files);
-    }, [files])
 
     const handleFileChange = async (filesChange: FileList) => {
         if (limit && files) {
@@ -57,9 +53,10 @@ const DragDropFile: React.FC<Props> = (props): JSX.Element => {
 
             setFiles(prevFile => {
                 if (prevFile && prevFile.length > 0) {
+                    handleChange && handleChange([...fileArr, ...prevFile]);
                     return [...fileArr, ...prevFile]
                 }
-
+                handleChange && handleChange(fileArr);
                 return fileArr;
             });
             setLoading(true);

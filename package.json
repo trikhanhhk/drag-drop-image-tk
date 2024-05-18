@@ -1,0 +1,34 @@
+{
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "name": "drag-drop-file-tk",
+  "description": "",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src/style.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trikhanhhk/drag-drop-image-tk"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && cp src/style.css lib"
+  },
+  "keywords": [
+    "drag & drop image",
+    "drag image",
+    "drop image",
+    "select image"
+  ],
+  "author": "tk0038",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^18.3.2",
+    "react": "^18.3.1"
+  }
+}

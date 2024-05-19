@@ -4,6 +4,8 @@
 
 The `drag-drop-file-tk` library provides a React component for implementing drag and drop functionality for image files. This library allows users to select one or multiple image files from their computer or drag them into a designated area for preview.
 
+![Application Screenshot](preview.png)
+
 ## Installation
 
 Install the library via npm:

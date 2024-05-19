@@ -28,6 +28,8 @@ const DragDropFile: React.FC<Props> = (props): JSX.Element => {
 
     const [loading, setLoading] = useState<boolean>(false);
 
+    const [keyInput, setKeyInput] = useState<number>(Date.now())
+
     const handleSelectFile = () => {
         fileInputRef.current?.click();
     }
@@ -35,6 +37,7 @@ const DragDropFile: React.FC<Props> = (props): JSX.Element => {
     const handleChoseFile = () => {
         const filesChose = fileInputRef.current?.files;
         filesChose && handleFileChange(filesChose);
+        setKeyInput(Date.now());
     };
 
     const handleFileChange = async (filesChange: FileList) => {
@@ -94,16 +97,18 @@ const DragDropFile: React.FC<Props> = (props): JSX.Element => {
         setFiles(null);
         setUrlsPreview([]);
         handleChange && handleChange(null);
-        return false;
+        setKeyInput(Date.now());
     }
 
     const handleDeleteOne = (idx: number) => {
         setFiles(prev => {
             if (!prev) {
+                handleChange && handleChange(null);
                 return [];
             }
 
             const newFiles = prev.filter((_, index) => index !== idx);
+            handleChange && handleChange(newFiles);
             return newFiles;
         });
 
@@ -111,6 +116,7 @@ const DragDropFile: React.FC<Props> = (props): JSX.Element => {
             const newUrls = prev.filter((_, index) => index !== idx);
             return newUrls;
         });
+        setKeyInput(Date.now());
     }
 
     const [showToast, setShowToast] = useState<boolean>(false);
@@ -153,7 +159,7 @@ const DragDropFile: React.FC<Props> = (props): JSX.Element => {
                                 <div onClick={(e) => { e.stopPropagation(); }} style={{ display: loading ? "block" : "none" }} className="overlay-loading">
                                     <div className="loader"></div>
                                 </div>
-                                <input onChange={handleChoseFile} ref={fileInputRef} type="file" accept="image/*" style={{ display: "none" }} />
+                                <input onChange={handleChoseFile} key={keyInput} ref={fileInputRef} type="file" accept="image/*" style={{ display: "none" }} />
                             </div>
                         </div>
                     </div>
